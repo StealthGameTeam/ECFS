@@ -1,0 +1,7 @@
+Hi, this is such a license.
+
+
+----
+We're using loads of awesome stuffs:
+
+
