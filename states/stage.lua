@@ -4,6 +4,7 @@ local helpers = require 'helpers.scene_help'
 local GS = require 'lib.gamestate'
 local fun = require 'lib.fun'
 local ctx = GS.new()
+local options = {}
 local function mystate()
 
 	return SCENES[CURRENTSCENE]
@@ -11,11 +12,15 @@ end
 local function accept(choice)
 	return true
 end
+
 local function get_options()
 
  	local currentstate = mystate().states[CURRENTSTATE]
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.grep(accept, currentstate.choices))
+ 	for k,v in ipairs(tbl) do
+		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(v.consequence, get_options))
+ 	end
  	return tbl
  	
 end

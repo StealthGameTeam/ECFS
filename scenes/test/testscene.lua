@@ -10,6 +10,7 @@ end
 -- Scene : Background, portrait, choices
 local ch = {}
 A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "A")})
+A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
 
 S("START", {background = "chicken", foreground = "chickenchicken", choices = ch})
 return scene
