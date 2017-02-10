@@ -10,7 +10,7 @@ end
 -- Scene : Background, portrait, choices
 local ch = {}
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.DoAll(core.PreFill(print, "To Stop state"), helpers.change_state("STOP"))})
-A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "A")})
+A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 60}}, consequence = core.PreFill(print, "A")})
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "C")})
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "D")})

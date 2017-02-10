@@ -32,9 +32,7 @@ local function get_options()
  	local currentstate = mystate().states[CURRENTSTATE]
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(5,fun.grep(accept, currentstate.choices)))
- 	print("-----")
  	for k,v in ipairs(tbl) do
- 		print(tostring(k))
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(v.consequence, get_options))
  	end
  	options = tbl
@@ -43,7 +41,7 @@ local function get_options()
 end
 function ctx:enter(from)
 	print("ENTERING STAGE")
-	pprint(get_options())
+	get_options()
 
 end
 

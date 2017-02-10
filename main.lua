@@ -1,6 +1,6 @@
 CURRENTSCENE = "test"
 CURRENTSTATE = "START"
-
+--print = function() end
 pprint = require 'lib.pprint'
 
 require 'helpers.core_funcs'
@@ -14,12 +14,8 @@ Gamestate = require 'lib.gamestate'
 function love.load()
     Gamestate.registerEvents()
  	Gamestate.switch(require 'states.1_pre_game')
-	
-
-
 end
 function love.draw()
-
 	love.graphics.print(love.timer.getFPS(), 10,10)
 	love.graphics.print(collectgarbage('count'), 50,10)
 end
