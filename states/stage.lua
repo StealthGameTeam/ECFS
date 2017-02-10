@@ -8,8 +8,22 @@ local function mystate()
 
 	return SCENES[CURRENTSCENE]
 end
+
 local function accept(choice)
-	return true
+	for k,v in pairs(choice.requirements) do
+		if v[1] == "+" then
+			print(v[2] .. " HIGHER THAN " .. v[3])
+			return GAME[v[2]] > v[3]
+		elseif v[1] == "=" then
+			print(v[2] .. " EQAL TO " .. v[3])
+			return GAME[v[2]] == v[3]
+		elseif v[1] == "-" then
+			print(v[2] .. " LOWER THAN " .. v[3])
+			return GAME[v[2]] < v[3]
+		end
+	end
+	print("UNKNOWN OPERATOR")
+	return false
 end
 local function get_options()
 
@@ -17,12 +31,12 @@ local function get_options()
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.grep(accept, currentstate.choices))
  	return tbl
- 	
+
 end
 function ctx:enter(from)
 	print("ENTERING STAGE")
 	pprint(get_options())
-	
+
 end
 
 function ctx:leave()
@@ -41,7 +55,7 @@ function ctx:update(dt)
 end
 function ctx:draw()
 
- 
+
 end
 
 return ctx
