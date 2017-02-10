@@ -1015,6 +1015,10 @@ local operator = {
         a[b] = c
         return a
     end,
+    insertI = function(a,b) 
+        a[#a+1] = b
+        return a
+    end,
     keys = function(tab)
         local keyset = {}
         for k,v in pairs(tab) do

@@ -1,13 +1,13 @@
-SCENES = {}
-GIRLS = {}
-GAME = {}
-
+CURRENTSCENE = "test"
+CURRENTSTATE = "START"
 
 pprint = require 'lib.pprint'
 
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
-
+SCENES = {test = require 'scenes.test.testscene'}
+GIRLS = {}
+GAME = {}
 Gamestate = require 'lib.gamestate'
 
 
