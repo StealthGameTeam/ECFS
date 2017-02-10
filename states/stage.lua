@@ -7,11 +7,13 @@ local ctx = GS.new()
 local options = {}
 local getGB = require 'render.background.find_background'
 local getGIRL= require 'render.girls.draw_girl'
+local DRAWCLICKS = true
 local function mystate()
-
 	return SCENES[CURRENTSCENE]
 end
-
+function asdf() 
+	print("AFDDSF")
+end
 local function accept(choice)
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
@@ -31,6 +33,7 @@ end
 
 local function get_options()
 	core.events = {}
+	core.clicks = {}
  	local currentstate = mystate().states[CURRENTSTATE]
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(5,fun.grep(accept, currentstate.choices)))
@@ -40,7 +43,7 @@ local function get_options()
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
  	DRAWGIRL =  getGIRL(currentstate.location)
-
+ 	core.add_click({{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
  	return tbl
 end
 
@@ -73,7 +76,20 @@ function ctx:draw()
 	i=0
 	DRAWSCENE()
 	DRAWGIRL()
+
 	fun.each(print_option, options)
+	if DRAWCLICKS then
+		for k,v in ipairs(core.clicks) do
+			local poly = core.cc[k]
+			local line = {}
+
+			for l,w in pairs(poly) do
+				line[#line+1] = w.x
+				line[#line+1] = w.y
+			end
+			love.graphics.polygon("line",unpack(line))
+		end
+	end
 
 end
 

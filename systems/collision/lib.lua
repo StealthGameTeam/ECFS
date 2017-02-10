@@ -63,16 +63,17 @@ f.execute_if_rule = function(entity1, entity2, prev)
 	return rules[entity1.collision.type][entity2.collision.type](entity1, entity2, prev)
 end
 
-local function point_in_polygon(polygon, point, position, position2)
+function point_in_polygon(polygon, x, y)
+
+
   local odd = false
   local prev = #polygon
 
-  local y = point.y+position2.y-position.y
-  local x = point.x+position2.x-position.x
   for k,v in ipairs(polygon) do
   	local w = polygon[prev]
+
   	if (v.y < y and w.y >= y) or (w.y < y and v.y >= y) then
-  		if (v.x + (y - v.x) / (w.x-v.x)*(w.x-v.x) < x) then
+  		if x < ((w.x - v.x) * (y - v.y)) / ((w.y - v.y)) + v.x  then
   			odd = not odd
   		end
   	end

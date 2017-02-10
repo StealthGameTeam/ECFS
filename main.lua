@@ -5,6 +5,7 @@ pprint = require 'lib.pprint'
 
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
+require 'inputoutput.click'
 SCENES = {test = require 'scenes.test.testscene'}
 GIRLS = {}
 GAME = {}
