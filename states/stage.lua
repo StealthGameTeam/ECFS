@@ -5,6 +5,7 @@ local GS = require 'lib.gamestate'
 local fun = require 'lib.fun'
 local ctx = GS.new()
 local options = {}
+local getGB = require 'render.background.find_background'
 local function mystate()
 
 	return SCENES[CURRENTSCENE]
@@ -36,18 +37,19 @@ local function get_options()
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(v.consequence, get_options))
  	end
  	options = tbl
+ 	DRAWSCENE =  getGB(currentstate.location)
  	return tbl
-
 end
+
 function ctx:enter(from)
 	print("ENTERING STAGE")
 	get_options()
-
 end
 
 function ctx:leave()
 
 end
+
 local i = 0
 function print_option(opt)
 	i=i+1
@@ -63,11 +65,13 @@ function ctx:update(dt)
       end
 	end
 
-
 end
 function ctx:draw()
 	i=0
+	DRAWSCENE()
+	DRAWGIRL()
 	fun.each(print_option, options)
+
 end
 
 return ctx

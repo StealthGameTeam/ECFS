@@ -19,6 +19,6 @@ A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, co
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
 
 
-S("START", {background = "chicken", foreground = "chickenchicken", choices = ch})
-S("STOP", {background = "chicken", foreground = "chickenchicken", choices = {}})
+S("START", {location = "bus", girl = "wifi_waifu", choices = ch})
+S("STOP", {location = "buss", girl = "wifi_waifu", choices = {}})
 return scene

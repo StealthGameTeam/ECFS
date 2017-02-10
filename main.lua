@@ -8,6 +8,8 @@ require 'inputoutput.keyboard_input'
 SCENES = {test = require 'scenes.test.testscene'}
 GIRLS = {}
 GAME = {}
+DRAWSCENE = function() end
+DRAWGIRL  = function() end
 Gamestate = require 'lib.gamestate'
 
 
