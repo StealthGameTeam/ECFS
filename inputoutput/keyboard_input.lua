@@ -37,11 +37,16 @@ s.whenDown = function(id1, id2, str, func)
 		if cfunc(dt) then
 			if not KeyWhended[str] then
 				func(dt)
+				KeyWhended[str] = true
+				return true
 			end
 			KeyWhended[str] = true
+			
 		else
 			KeyWhended[str] = false
+
 		end
+		return false
 	end
 
 end

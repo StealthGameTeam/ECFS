@@ -14,13 +14,16 @@ local function accept(choice)
 end
 
 local function get_options()
-
+	core.events = {}
  	local currentstate = mystate().states[CURRENTSTATE]
  	local tbl = {}
- 	fun.each(core.PreFill(fun.op.insertI, tbl), fun.grep(accept, currentstate.choices))
+ 	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(5,fun.grep(accept, currentstate.choices)))
+ 	print("-----")
  	for k,v in ipairs(tbl) do
+ 		print(tostring(k))
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(v.consequence, get_options))
  	end
+ 	options = tbl
  	return tbl
  	
 end
@@ -33,7 +36,11 @@ end
 function ctx:leave()
 
 end
-
+local i = 0
+function print_option(opt)
+	i=i+1
+	love.graphics.print(i..": "..opt.text, 200, 600+i*20 )
+end
 function ctx:update(dt)
 	      -- This looks like lots of loops, but it really isn't .
     for k,v in pairs(core.events) do
@@ -43,9 +50,12 @@ function ctx:update(dt)
         end
       end
 	end
+
+
 end
 function ctx:draw()
-
+	i=0
+	fun.each(print_option, options)
  
 end
 
