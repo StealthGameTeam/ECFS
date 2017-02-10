@@ -7,16 +7,12 @@ core = core or {}
 core.events = core.events or {}
 function ctx:enter(from)
 	resources = {}
-
 	print("ENTERING MENU")
-
-
 end
 function ctx:leave()
 
 end
 function ctx:update(dt)
-
 	-- This looks like lots of loops, but it really isn't .
 	for k,v in pairs(core.events) do
 		for l,w in pairs(v) do
@@ -25,14 +21,7 @@ function ctx:update(dt)
 			end
 		end
 	end
-
-	-- update functions
-	if core.system.functions.update then
-		for _,v in pairs(core.system.functions.update) do
-			v.functions.update(dt)
-		end
-	end
-	 core.PreFill(Gamestate.switch, MENU)()
+	 Gamestate.switch(MENU)
 end
 
 

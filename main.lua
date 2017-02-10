@@ -1,19 +1,19 @@
+SCENES = {}
+GIRLS = {}
+GAME = {}
 
-CONFIG = {}
-UI_STATE = {}
-SUPERSTATE = {} -- Superstate = the all game-information 
+
 pprint = require 'lib.pprint'
 
 require 'helpers.core_funcs'
-require 'ECFS'
 require 'inputoutput.keyboard_input'
-STATES = {}
+
 Gamestate = require 'lib.gamestate'
-STATES[1] = require 'states.1_pre_game'
+
 
 function love.load()
     Gamestate.registerEvents()
- 	Gamestate.switch(STATES[1])
+ 	Gamestate.switch(require 'states.1_pre_game')
 	
 
 

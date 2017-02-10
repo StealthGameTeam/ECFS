@@ -1,20 +1,14 @@
 local GS = require 'lib.gamestate'
 local ctx = GS.new()
-local SETTINGS = require 'states.2a_settings'
-local HELP = require 'states.2b_help'
-local INIT = require 'states.3a_game_init'
+local INIT = require 'states.init'
 function ctx:enter(from)
 	ctx.from = from -- record previous state
 	core.events = {}
 	core.keyboard.whenDown(ctx, "A", "1", core.PreFill(Gamestate.switch, INIT))
-	core.keyboard.whenDown(ctx, "A", "2", core.PreFill(Gamestate.switch, SETTINGS))
-	core.keyboard.whenDown(ctx, "A", "3", core.PreFill(Gamestate.switch, HELP))
-
 	print("MENU")
 end
 function ctx:leave()
   	core.events = {}
-
 end
 function ctx:update(dt)
   	for k,v in pairs(core.events) do
@@ -33,8 +27,6 @@ function ctx:draw()
 	love.graphics.rectangle("fill",0,0,width,height)
 	love.graphics.setColor(255,255,255,255)
 	love.graphics.print("1. Start", 300,100)
-	love.graphics.print("2. Settings", 300,120)
-	love.graphics.print("3. Help", 300,140)
 end
 
 
