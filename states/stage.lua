@@ -6,6 +6,7 @@ local fun = require 'lib.fun'
 local ctx = GS.new()
 local options = {}
 local getGB = require 'render.background.find_background'
+local getGIRL= require 'render.girls.draw_girl'
 local function mystate()
 
 	return SCENES[CURRENTSCENE]
@@ -38,6 +39,8 @@ local function get_options()
  	end
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
+ 	DRAWGIRL =  getGIRL(currentstate.location)
+
  	return tbl
 end
 

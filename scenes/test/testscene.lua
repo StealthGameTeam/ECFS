@@ -20,5 +20,5 @@ A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, co
 
 
 S("START", {location = "bus", girl = "wifi_waifu", choices = ch})
-S("STOP", {location = "buss", girl = "wifi_waifu", choices = {}})
+S("STOP", {location = "bus", girl = "wifi_waifu", choices = {}})
 return scene
