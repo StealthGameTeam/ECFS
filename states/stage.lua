@@ -50,10 +50,12 @@ function get_options()
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), func)
 		core.add_click({{x=0,y=675+k*50},{x=1000,y=675+k*50},{x=1000,y=725+k*50},{x=0,y=725+k*50}},func)
  	end
+ 	for k,v in ipairs(SCENES[CURRENTSCENE].events) do
+ 		v()
+ 	end
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
  	DRAWGIRL =  getGIRL(currentstate.girl)
- 	core.add_click({{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
  	return tbl
 end
 
