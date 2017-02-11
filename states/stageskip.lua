@@ -10,10 +10,10 @@ local DRAWCLICKS = true
 COUNTER = 0
 
 
-function goToNextStage(name)
+function getSwitch(name)
 	return function()
 
-		gotoStage(name)
+		goToNextStage(name)
 	end
 end
 local function getText()
