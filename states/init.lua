@@ -6,7 +6,7 @@ local ctx = GS.new()
 
 function ctx:enter(from)
 	ctx.from = from -- record previous state
-	local STAGESKIP = require 'states.stage'
+	local STAGESKIP = require 'states.stageskip'
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
 	GAME =
 	{

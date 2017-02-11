@@ -1,3 +1,5 @@
+Gamestate = require 'lib.gamestate'
+
 CURRENTSCENE = "momscreen"
 CURRENTSTATE = "PHONE"
 --print = function() end
@@ -6,12 +8,22 @@ pprint = require 'lib.pprint'
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
 require 'inputoutput.click'
+function POPBACK ()
+	IGNORE_THIS_ROUND = true
+	core.events = {}
+	core.clicks = {}
+	print("POP")
+	Gamestate.pop()
+	ready_between()
+	
+end
 SCENES = {momscreen = require 'scenes.schoolscenes.momcall', test = require 'scenes.test.testscene'}
 GIRLS = {}
 GAME = {}
+DAY = 1
+DAYPART = 3
 DRAWSCENE = function() end
 DRAWGIRL  = function() end
-Gamestate = require 'lib.gamestate'
 
 
 function love.load()

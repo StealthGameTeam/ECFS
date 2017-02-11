@@ -45,8 +45,13 @@ local function accept(choice)
 	end
 	return true
 end
-
+IGNORE_THIS_ROUND = false
 function get_options()
+	if IGNORE_THIS_ROUND then
+		IGNORE_THIS_ROUND = false
+		return
+	end
+	IGNORE_THIS_ROUND = false
 	core.events = {}
 	core.clicks = {}
  	local currentstate = SCENES[CURRENTSCENE].states[CURRENTSTATE]
