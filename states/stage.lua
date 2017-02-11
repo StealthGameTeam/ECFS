@@ -8,13 +8,22 @@ local options = {}
 local getGB = require 'render.background.find_background'
 local getGIRL= require 'render.girls.draw_girl'
 local DRAWCLICKS = true
-local function mystate()
-	return SCENES[CURRENTSCENE]
-end
+COUNTER = 0
+OPTION_USED = {}
+
 function asdf() 
 	print("AFDDSF")
 end
+
+local function track_OPTION_use(option)
+	COUNTER = COUNTER + 1
+	OPTION_USED[option..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] = COUNTER
+	pprint(OPTION_USED)
+end
 local function accept(choice)
+	if OPTION_USED[choice.text..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] then
+		return false
+	end
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
 			print(v[2] .. " HIGHER THAN " .. v[3])
@@ -34,11 +43,11 @@ end
 function get_options()
 	core.events = {}
 	core.clicks = {}
- 	local currentstate = mystate().states[CURRENTSTATE]
+ 	local currentstate = SCENES[CURRENTSCENE].states[CURRENTSTATE]
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(5,fun.grep(accept, currentstate.choices)))
  	for k,v in ipairs(tbl) do
-		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(v.consequence, get_options))
+		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options))
  	end
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)

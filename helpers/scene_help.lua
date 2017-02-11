@@ -8,8 +8,6 @@ helpers.change_state = function(TO)
 		print("State from " ..CURRENTSTATE .." to "..TO)
 		CURRENTSTATE = TO
 		get_options()
-
-
 	end
 end
 helpers.change_scene = function(TO)
@@ -34,6 +32,10 @@ helpers.add_like = function(stat, diff)
 		print(stat ..": ".. GAME[stat].. " + " .. diff ..  " = " .. (GAME[stat] + diff))
 		GAME[stat] = GAME[stat] + diff
 	end
+end
+
+helpers.addChoice = function (list, choice)
+	list[#list+1] = choice
 
 end
 

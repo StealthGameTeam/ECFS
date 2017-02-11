@@ -121,6 +121,15 @@ core.DoAll = function(...)
 	end
 end
 
+core.If = function(i, the, els)
+	return function()
+		if i() then
+			return the()
+		else
+			return els()
+		end
+	end
+end
 core.rotate_point = function(p, angle)
 	
    local s = math.sin(angle)
