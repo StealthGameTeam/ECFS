@@ -1,4 +1,4 @@
-SET game=BulletRain
+SET game=BitOfLove
 dir
 rmdir build /s  /Q
 mkdir build
