@@ -10,8 +10,7 @@ local DRAWCLICKS = true
 COUNTER = 0
 
 
-function getSwitch(name)
-	print("GETSWITCH"..name)
+function goToNextStage(name)
 	return function()
 
 		gotoStage(name)
@@ -32,11 +31,17 @@ function ready_between()
 
 	end
 end
-
+function goToNextStage(stagename)
+	gotoStage(stagename)
+	DAYPART = DAYPART + 1
+	if DAYPART == 6 then
+		DAYPART = 1
+		DAY = DAY + 1
+	end
+end
 function gotoStage(stagename)
 	CURRENTSCENE = stagename
 	CURRENTSTATE = SCENES[stagename].start
-	print(stagename)
 	Gamestate.push(require 'states.stage')
 end
 
