@@ -23,6 +23,9 @@ local function accept(choice)
 	if OPTION_USED[choice.text..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] then
 		return false
 	end
+	if #choice.requirements == 0 then
+		return true
+	end
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
 			return GAME[v[2]] > v[3]
@@ -41,7 +44,7 @@ function get_options()
 	core.clicks = {}
  	local currentstate = SCENES[CURRENTSCENE].states[CURRENTSTATE]
  	local tbl = {}
- 	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(5,fun.grep(accept, currentstate.choices)))
+ 	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(4,fun.grep(accept, currentstate.choices)))
  	for k,v in ipairs(tbl) do
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options))
  	end
@@ -66,7 +69,7 @@ end
 local i = 0
 function print_option(opt)
 	i=i+1
-	love.graphics.print(i..": "..opt.text, 200, 600+i*20 )
+	love.graphics.print(i..": "..opt.text, 200, 690+i*50 )
 end
 function ctx:update(dt)
 	      -- This looks like lots of loops, but it really isn't .
@@ -83,8 +86,17 @@ function ctx:draw()
 	i=0
 	DRAWSCENE()
 	DRAWGIRL()
-
+	love.graphics.setColor(128,128,128)
+	love.graphics.rectangle("fill", 000,620,1000,1000)
+	love.graphics.setColor(255,255,255)
+	love.graphics.print(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 200, 650)
+	love.graphics.setColor(64,64,64)
+	love.graphics.rectangle("fill", 000,725,1000,1000)
+	love.graphics.setColor(255,255,255)
 	fun.each(print_option, options)
+	for j=0, 5 do
+		love.graphics.line(0,725+j*50, 1000,725+j*50)
+	end
 	if DRAWCLICKS then
 		for k,v in ipairs(core.clicks) do
 			local poly = core.cc[k]

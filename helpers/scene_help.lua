@@ -35,4 +35,7 @@ helpers.addChoice = function (list, choice)
 
 end
 
+helpers.addSay = function (text, next)
+	
+end
 return helpers
