@@ -25,13 +25,14 @@ A(ch, {text = "Pick up phone",
 	requirements = {},
 	consequence = helpers.change_state("1")})
 
-S("PHONE", {location = "bus", text = "Phone: 'rings'", girl = "wifi_waifu", choices = ch})
+S("PHONE", {location = "school", text = "Phone: 'rings'", girl = "wifi_waifu", choices = ch})
+
 
 local ch = {}
 A(ch, {text = "...",
 	requirements = {},
 	consequence = helpers.change_state("2")})
-S("1", {location = "bus",  text = "Me: Hello mom.", girl = "wifi_waifu", choices = ch})
+S("1", {location = "school",  text = "Me: Hello mom.", girl = "wifi_waifu", choices = ch})
 
 
 local ch = {}
@@ -42,20 +43,20 @@ A(ch, {text = "What family Dinner?",
 A(ch, {text = "I remember..",
 	requirements = {},
 	consequence = helpers.change_state("3B")})
-S("2", {location = "bus",  text = "Hi Jules!\n I wanted to remind you of the family dinner we have in a week.", girl = "wifi_waifu", choices = ch})
-
+S("2", {location = "school",  text = "Hi Jules!\n I wanted to remind you of the family dinner we have in a week.", girl = "wifi_waifu", choices = ch})
 
 
 local ch = {}
 A(ch, {text = "Sorry...",
 	requirements = {},
 	consequence = core.DoAll(con(-10),helpers.change_state("4"))})
-S("3A", {location = "bus",  text = "I told you ten times already.", girl = "wifi_waifu", choices = ch})
+S("3A", {location = "school",  text = "I told you ten times already.", girl = "wifi_waifu", choices = ch})
 local ch = {}
 A(ch, {text = "...",
 	requirements = {},
 	consequence = helpers.change_state("4")})
-S("3B", {location = "bus",  text = "... That's good.", girl = "wifi_waifu", choices = ch})
+S("3B", {location = "school",  text = "... That's good.", girl = "wifi_waifu", choices = ch})
+
 
 local ch = {}
 A(ch, {text = "I don't have a girlfriend.",
@@ -67,41 +68,56 @@ A(ch, {text = "I don't think she can come over that day.",
 A(ch, {text = "Yes of course I am.",
 	requirements = {},
 	consequence = helpers.change_state("5C")})
-S("4", {location = "bus",  text = "Your grandparents have been asking about your girlfriend. \nYou're bringing her, right?.\n\nSHIT I FORGOT I LIED ABOUT THAT!! SHIT!", girl = "wifi_waifu", choices = ch})
+S("4", {location = "school",  text = "Your grandparents have been asking about your girlfriend. \nYou're bringing her, right?.\n\nSHIT I FORGOT I LIED ABOUT THAT!! SHIT!", girl = "wifi_waifu", choices = ch})
 
 
 local ch = {}
 A(ch, {text = "Sorry...",
 	requirements = {},
-	consequence = core.DoAll(con(-10),helpers.change_state("6"))})
-S("5A", {location = "bus",  text = "Then don't come to dinner unless you have one.", girl = "wifi_waifu", choices = ch})
+	consequence = helpers.change_state("6")})
+S("5A", {location = "school",  text = "Then don't come to dinner unless you have one.", girl = "wifi_waifu", choices = ch})
 local ch = {}
 A(ch, {text = "...",
 	requirements = {},
 	consequence = helpers.change_state("6")})
-S("5B", {location = "bus",  text = "Somehow I don't believe that.", girl = "wifi_waifu", choices = ch})
+S("5B", {location = "school",  text = "Somehow I don't believe that.", girl = "wifi_waifu", choices = ch})
 local ch = {}
 A(ch, {text = "...",
 	requirements = {},
 	consequence = helpers.change_state("6")})
-S("5C", {location = "bus",  text = "Finally, we've all been waiting to meet her for quite a while.", girl = "wifi_waifu", choices = ch})
+S("5C", {location = "school",  text = "Finally, we've all been waiting to meet her for quite a while.", girl = "wifi_waifu", choices = ch})
+
 
 local ch = {}
 A(ch, {text = "That's fine..",
 	requirements = {},
 	consequence = helpers.change_state("7")})
-S("6", {location = "bus",  text = "Remember, it's in a week.\n\n SHIT SHIT SHIT SHE'LL DISOWN ME IF SHE FIGURES OUT I'M LYING", girl = "wifi_waifu", choices = ch})
+S("6", {location = "school",  text = "Remember, it's in a week.\n\n SHIT SHIT SHIT SHE'LL DISOWN ME IF SHE FIGURES OUT I'M LYING", girl = "wifi_waifu", choices = ch})
+
 
 local ch = {}
 A(ch, {text = "Sure.",
 	requirements = {},
 	consequence = helpers.change_state("8")})
-S("7", {location = "bus",  text = "Good, I'll speak to you later then.", girl = "wifi_waifu", choices = ch})
+S("7", {location = "school",  text = "Good, I'll speak to you later then.", girl = "wifi_waifu", choices = ch})
+
 
 local ch = {}
 A(ch, {text = "Yes Mom, bye.",
 	requirements = {},
-	consequence = helpers.change_state("9")})
-S("8", {location = "bus",  text = "Bye now; Don't forget to eat breakfast..", girl = "wifi_waifu", choices = ch})
+	consequence = POPBACK})
+S("8", {location = "school",  text = "Bye now; Don't forget to eat breakfast..", girl = "wifi_waifu", choices = ch})
 
+
+local ch = {}
+A(ch, {text = "Approach the (cute) girl still in class. It seems she has been observing you as you called your mom.",
+	requirements = {},
+	consequence = helpers.change_state("9")})
+A(ch, {text = "Look for information on dating in the library.",
+	requirements = {},
+	consequence = helpers.change_state("9")})
+A(ch, {text = "Look for girls in the gym.",
+	requirements = {},
+	consequence = Gamestate.pop})
+S("9", {location = "school",  text = "That was an awkward call.. Well, it seems I have to find a girlfriend in a week. But how do I find one? I daren't even approach girls..", girl = "wifi_waifu", choices = ch})
 return scene

@@ -4,7 +4,7 @@ local INIT = require 'states.init'
 function ctx:enter(from)
 	ctx.from = from -- record previous state
 	core.events = {}
-	core.keyboard.whenDown(ctx, "A", "1", core.PreFill(Gamestate.switch, INIT))
+	Gamestate.switch(INIT)
 	print("MENU")
 end
 function ctx:leave()
