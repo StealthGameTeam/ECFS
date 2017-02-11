@@ -31,7 +31,7 @@ local function accept(choice)
 	return false
 end
 
-local function get_options()
+function get_options()
 	core.events = {}
 	core.clicks = {}
  	local currentstate = mystate().states[CURRENTSTATE]
@@ -50,6 +50,8 @@ end
 function ctx:enter(from)
 	print("ENTERING STAGE")
 	get_options()
+	helpers.change_scene("test")()
+
 end
 
 function ctx:leave()
