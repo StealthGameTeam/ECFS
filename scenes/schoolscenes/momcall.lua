@@ -104,5 +104,14 @@ A(ch, {text = "Yes Mom, bye.",
 S("8", {location = "bus",  text = "Bye now; Don't forget to eat breakfast..", girl = "wifi_waifu", choices = ch})
 
 local ch = {}
-S("9", {location = "bus",  text = "END OF DEMO.", girl = "wifi_waifu", choices = ch})
+A(ch, {text = "Approach the (cute) girl still in class. It seems she has been observing you as you called your mom.",
+	requirements = {},
+	consequence = helpers.change_state("9")})
+A(ch, {text = "Look for information on dating in the library.",
+	requirements = {},
+	consequence = helpers.change_state("9")})
+A(ch, {text = "Look for girls in the gym.",
+	requirements = {},
+	consequence = helpers.change_state("9")})
+S("9", {location = "bus",  text = "That was an awkward call.. Well, it seems I have to find a girlfriend in a week. But how do I find one? I daren't even approach girls..", girl = "wifi_waifu", choices = ch})
 return scene
