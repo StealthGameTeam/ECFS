@@ -1,5 +1,5 @@
 local bgs = {}
-bgs["bus"] =  love.graphics.newImage("assets/test/ftl.jpg")
+bgs["bus"] =  love.graphics.newImage("assets/backgrounds/busstop.PNG")
 
 
 return function(name)
@@ -10,6 +10,6 @@ return function(name)
 		end
 	end
 	return function()
-		love.graphics.draw(img, 10,10)
+		love.graphics.draw(img, 0,0)
 	end
 end

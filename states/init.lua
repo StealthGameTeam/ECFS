@@ -10,7 +10,7 @@ function ctx:enter(from)
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
 	GAME =
 	{
-		awkwardness = 50, confidence = 50, coolness = 50,
+		awkwardness = 80, confidence = 20, coolness = 20,
 		wifi_waifu = 10
 	}
 	GIRLS =

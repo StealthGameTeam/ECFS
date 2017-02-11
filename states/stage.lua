@@ -20,9 +20,9 @@ local function track_OPTION_use(option)
 	OPTION_USED[option..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] = COUNTER
 end
 local function accept(choice)
-	if OPTION_USED[choice.text..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] then
-		return false
-	end
+	--if OPTION_USED[choice.text..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] then
+	--	return false
+	--end
 	if #choice.requirements == 0 then
 		return true
 	end
@@ -69,7 +69,6 @@ end
 function ctx:enter(from)
 	print("ENTERING STAGE")
 	get_options()
-	helpers.change_scene("test")()
 
 end
 

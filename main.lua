@@ -1,12 +1,12 @@
-CURRENTSCENE = "test"
-CURRENTSTATE = "START"
+CURRENTSCENE = "momscreen"
+CURRENTSTATE = "PHONE"
 --print = function() end
 pprint = require 'lib.pprint'
 
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
 require 'inputoutput.click'
-SCENES = {test = require 'scenes.test.testscene'}
+SCENES = {momscreen = require 'scenes.schoolscenes.momcall', test = require 'scenes.test.testscene'}
 GIRLS = {}
 GAME = {}
 DRAWSCENE = function() end

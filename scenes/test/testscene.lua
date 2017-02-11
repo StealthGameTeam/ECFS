@@ -40,7 +40,7 @@ S("START", {location = "bus", text = "You see a girl at a bus stop. She looks ki
 S("STOP", {location = "bus",  text = "BLA BLA BLA", girl = "asdf", choices = {}})
 local AS =  core.After(S, helpers.addSay)
 
-S("1", {location = "bus",  text = "She looks funny at you.", girl = "asdf", choices = {}})
+S("1", {location = "bus",  text = "She looks funny at you.", girl = "wifi_waifu", choices = {}})
 S("2", {location = "bus",  text = "She walks off.", girl = "nil", choices = {}})
 S("3", {location = "bus",  text = "She walks off angrily.", girl = "nil", choices = {}})
 
