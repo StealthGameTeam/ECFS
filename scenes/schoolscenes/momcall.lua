@@ -69,11 +69,10 @@ A(ch, {text = "Yes of course I am.",
 	consequence = helpers.change_state("5C")})
 S("4", {location = "bus",  text = "Your grandparents have been asking about your girlfriend. \nYou're bringing her, right?.\n\nSHIT I FORGOT I LIED ABOUT THAT!! SHIT!", girl = "wifi_waifu", choices = ch})
 
-
 local ch = {}
 A(ch, {text = "Sorry...",
 	requirements = {},
-	consequence = core.DoAll(con(-10),helpers.change_state("6"))})
+	consequence = helpers.change_state("6")})
 S("5A", {location = "bus",  text = "Then don't come to dinner unless you have one.", girl = "wifi_waifu", choices = ch})
 local ch = {}
 A(ch, {text = "...",
@@ -104,4 +103,6 @@ A(ch, {text = "Yes Mom, bye.",
 	consequence = helpers.change_state("9")})
 S("8", {location = "bus",  text = "Bye now; Don't forget to eat breakfast..", girl = "wifi_waifu", choices = ch})
 
+local ch = {}
+S("9", {location = "bus",  text = "END OF DEMO.", girl = "wifi_waifu", choices = ch})
 return scene
