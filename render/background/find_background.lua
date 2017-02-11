@@ -1,5 +1,5 @@
 local bgs = {}
-bgs["bus"] =  love.graphics.newImage("assets/backgrounds/busstop.PNG")
+bgs["school"] =  love.graphics.newImage("assets/backgrounds/school.PNG")
 
 
 return function(name)
