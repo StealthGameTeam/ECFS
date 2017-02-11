@@ -73,7 +73,7 @@ end
 local i = 0
 function print_option(opt)
 	i=i+1
-	love.graphics.print(i..": "..opt.text, 200, 690+i*50 )
+	love.graphics.printf(i..": "..opt.text, 50, 690+i*50,  620, 'center' )
 end
 function ctx:update(dt)
 	      -- This looks like lots of loops, but it really isn't .
@@ -93,7 +93,7 @@ function ctx:draw()
 	love.graphics.setColor(128,128,128)
 	love.graphics.rectangle("fill", 000,620,1000,1000)
 	love.graphics.setColor(255,255,255)
-	love.graphics.print(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 200, 650)
+	love.graphics.printf(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 50, 650, 620, 'center')
 	love.graphics.setColor(64,64,64)
 	love.graphics.rectangle("fill", 000,725,1000,1000)
 	love.graphics.setColor(255,255,255)

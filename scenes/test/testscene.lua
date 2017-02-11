@@ -24,7 +24,7 @@ A(ch, {text = "Uwa so first Choice", requirements = {{"+", "coolness", 45}}, con
 A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 45}}, consequence = wifu(-1)})
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
 A(ch, {text = "Uwa so third Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "C")})
-A(ch, {text = "Uwa so fourth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "D")})
+A(ch, {text = "Uwa so fourth Choice Uwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "D")})
 A(ch, {text = "Uwa so fifth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "E")})
 A(ch, {text = "Uwa so sixth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
 A(ch, {text = "Uwa so seventh Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
