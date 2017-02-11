@@ -5,8 +5,8 @@ bgs["bus"] =  love.graphics.newImage("assets/test/ftl.jpg")
 return function(name)
 	local img = bgs[name]
 	if not img then
+		print("You moron, you forgot a background-image: "..name)
 		return function()
-			print("You moron, you forgot a background-image: "..name)
 		end
 	end
 	return function()
