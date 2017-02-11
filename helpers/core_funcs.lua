@@ -37,7 +37,11 @@ core.Not = function(cfunc)
 		return not cfunc()
 	end
 end
-
+core.After = function (a, b)
+	return function(...)
+		return a(b(...))
+	end
+end
 
 function core.Rem_Events(id1, id2)
 	if id2 then

@@ -35,7 +35,10 @@ helpers.addChoice = function (list, choice)
 
 end
 
-helpers.addSay = function (text, next)
-	
+helpers.addSay = function (state, name, next)
+	local choices = {}
+	helpers.addChoice(choices, {text="Ok.", requirements = {}, consequence=helpers.change_state(next)})
+	state.choices = choices
+	return name, state
 end
 return helpers

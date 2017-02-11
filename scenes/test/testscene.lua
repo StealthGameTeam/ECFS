@@ -20,16 +20,28 @@ scene.events[#scene.events+1] = core.PreFill(core.add_click, {{x=0,y=0},{x=200,y
 
 -- Scene : Background, portrait, choices
 local ch = {}
-A(ch, {text = "Uwa so first Choice", requirements = {{"+", "coolness", 45}}, consequence = core.DoAll(wifu(5), helpers.change_state("STOP"))})
-A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 45}}, consequence = wifu(-1)})
-A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
-A(ch, {text = "Uwa so third Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "C")})
-A(ch, {text = "Uwa so fourth Choice Uwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth ChoiceUwa so fourth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "D")})
-A(ch, {text = "Uwa so fifth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "E")})
-A(ch, {text = "Uwa so sixth Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
-A(ch, {text = "Uwa so seventh Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})
+
+A(ch, {text = "Say 'hi'",
+	requirements = {{"+", "coolness", 45}},
+	consequence = core.DoAll(wifu(5), helpers.change_state("1"))})
+A(ch, {text = "Look at your shoes",
+	requirements = {{"+", "coolness", 45}},
+		consequence = core.DoAll(wifu(-5), helpers.change_state("2"))})
+A(ch, {text = "Are you an angel?",
+	requirements = {{"+", "coolness", 45}},
+		consequence = core.DoAll(wifu(-20), helpers.change_state("2"))})
+A(ch, {text = "You smell like my grandmother...\n I love my grandmother.",
+	requirements = {{"+", "coolness", 45}},
+	consequence = core.DoAll(wifu(-20), helpers.change_state("3"))})
 
 
-S("START", {location = "bus", text = "Test Test test", girl = "wifi_waifu", choices = ch})
+
+S("START", {location = "bus", text = "You see a girl at a bus stop. She looks kind of cute..", girl = "wifi_waifu", choices = ch})
 S("STOP", {location = "bus",  text = "BLA BLA BLA", girl = "asdf", choices = {}})
+local AS =  core.After(S, helpers.addSay)
+
+S("1", {location = "bus",  text = "She looks funny at you.", girl = "asdf", choices = {}})
+S("2", {location = "bus",  text = "She walks off.", girl = "nil", choices = {}})
+S("3", {location = "bus",  text = "She walks off angrily.", girl = "nil", choices = {}})
+
 return scene
