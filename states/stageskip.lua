@@ -107,9 +107,6 @@ function ctx:draw()
 	for k,v in ipairs(getOptions()) do
 		print_option(v)
 	end
-
-
-
 end
 
 return ctx
