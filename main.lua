@@ -21,6 +21,7 @@ SCENES = {momscreen = require 'scenes.schoolscenes.momcall',
 	test = require 'scenes.test.testscene',
 	populargirl1 = require 'scenes.schoolscenes.populargirl1',
 	busstopgirlday1 = require 'scenes.schoolscenes.busstopgirlday1',
+	librarygirlday1 = require 'scenes.schoolscenes.librarygirlday1'
 }
 GIRLS = {}
 GAME = {}

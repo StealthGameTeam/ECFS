@@ -72,7 +72,7 @@ else:
                 if len(minCoolness) != 0:
                     data[variable][action]['coolness'] = {}
                     data[variable][action]['coolness']['min'] = minCoolness
-                    data[variable][action]['coolness']['max'] = minCoolness
+                    data[variable][action]['coolness']['max'] = maxCoolness
     print("GIRLS =")
     print("{")
     for girl in data:
