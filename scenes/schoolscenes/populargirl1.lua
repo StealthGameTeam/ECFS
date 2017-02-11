@@ -250,3 +250,5 @@ S("ccaaaaa", {location = "school", text = "Yeah. *Bell rings*", girl = "popular_
 
 local good_ending = "good"
 local bad_ending = "exit"
+
+return scene

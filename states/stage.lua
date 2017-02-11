@@ -54,8 +54,10 @@ function get_options()
 	IGNORE_THIS_ROUND = false
 	core.events = {}
 	core.clicks = {}
+	print(CURRENTSCENE, SCENES[CURRENTSCENE], SCENES[CURRENTSCENE].states)
  	local currentstate = SCENES[CURRENTSCENE].states[CURRENTSTATE]
  	local tbl = {}
+ 	print(CURRENTSCENE, CURRENTSTATE)
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(4,fun.grep(accept, currentstate.choices)))
  	for k,v in ipairs(tbl) do
  		local func = core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options)
@@ -113,7 +115,7 @@ function ctx:draw()
 			love.graphics.polygon("line",unpack(line))
 		end
 	end
-	
+
 	love.graphics.setColor(128,64,64)
 	love.graphics.rectangle("fill", 000,620,1000,1000)
 	love.graphics.setColor(255,255,255)

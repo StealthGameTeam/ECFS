@@ -9,6 +9,14 @@ local options = {}
 local DRAWCLICKS = true
 COUNTER = 0
 
+
+function getSwitch(name)
+	print("GETSWITCH"..name)
+	return function()
+
+		gotoStage(name)
+	end
+end
 local function getText()
 	return require ('scenes.betweenDayParts.'..DAY.."-"..DAYPART).text
 end
@@ -26,7 +34,9 @@ function ready_between()
 end
 
 function gotoStage(stagename)
-	CURRENTSTATE = TO
+	CURRENTSCENE = stagename
+	CURRENTSTATE = SCENES[stagename].start
+	print(stagename)
 	Gamestate.push(require 'states.stage')
 end
 

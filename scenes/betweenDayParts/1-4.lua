@@ -3,7 +3,7 @@ r.text = "That was an awkward call.. Well, it seems I have to find a girlfriend 
 r.options = {
 		{	text = "Approach the (cute) girl still in class. It seems she has been observing you as you called your mom.",
 			requirements = {},
-			consequence = function() print("1") end
+			consequence = getSwitch("populargirl1")
 		},
 		{text = "Look for information on dating in the library.",
 			requirements = {},
