@@ -17,7 +17,7 @@ function POPBACK ()
 	ready_between()
 	
 end
-SCENES = {momscreen = require 'scenes.schoolscenes.momcall', test = require 'scenes.test.testscene'}
+SCENES = {momscreen = require 'scenes.schoolscenes.momcall', test = require 'scenes.test.testscene', populargirl1 = require 'scenes.schoolscenes.populargirl1'}
 GIRLS = {}
 GAME = {}
 DAY = 1

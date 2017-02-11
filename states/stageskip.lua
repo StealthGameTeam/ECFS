@@ -23,11 +23,20 @@ end
 function ready_between()
 	for k,v in ipairs(getOptions()) do
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), v.consequence)
+		core.add_click({{x=0,y=675+k*50},{x=1000,y=675+k*50},{x=1000,y=725+k*50},{x=0,y=725+k*50}},v.consequence)
 
 	end
 end
-local function nextStage()
+function gotoStage(stagename)
+	CURRENTSTATE = TO
+
 	Gamestate.push(require 'states.stage')
+end
+local function stage()
+	Gamestate.push(require 'states.stage')
+end
+local function nextStage()
+	stage()
 	DAYPART = DAYPART + 1
 	if DAYPART == 6 then
 		DAYPART = 1
@@ -66,19 +75,20 @@ function ctx:draw()
 	i=0
 	DRAWSCENE()
 	DRAWGIRL()
-	love.graphics.setColor(128,128,128)
+	love.graphics.setColor(128,64,64)
 	love.graphics.rectangle("fill", 000,620,1000,1000)
 	love.graphics.setColor(255,255,255)
-	love.graphics.printf(getText(), 50, 650, 620, 'center')
-	love.graphics.setColor(64,64,64)
-	love.graphics.rectangle("fill", 000,725,1000,1000)
+	love.graphics.printf(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 50, 650, 620, 'center')
+	love.graphics.setColor(64,0,0)
+	
+	for j=0, 4 do
+	    love.graphics.rectangle("fill", 0,725+j*50, 720, 50, 10,10 )
+	end
 	love.graphics.setColor(255,255,255)
 	for k,v in ipairs(getOptions()) do
 		print_option(v)
 	end
-	for j=0, 5 do
-		love.graphics.line(0,725+j*50, 1000,725+j*50)
-	end
+
 	if DRAWCLICKS then
 		for k,v in ipairs(core.clicks) do
 			local poly = core.cc[k]
