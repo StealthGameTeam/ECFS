@@ -28,15 +28,15 @@ local function accept(choice)
 	end
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
-			if not GAME[v[2]] > v[3] then
+			if not (GAME[v[2]] > v[3]) then
 				return false
 			end
 		elseif v[1] == "=" then
-			if not GAME[v[2]] == v[3] then
+			if not (GAME[v[2]] == v[3]) then
 				return false
 			end
 		elseif v[1] == "-" then
-			if not GAME[v[2]] < v[3] then
+			if not (GAME[v[2]] < v[3]) then
 				return false
 			end
 		else
