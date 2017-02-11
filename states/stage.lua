@@ -11,7 +11,7 @@ local DRAWCLICKS = true
 COUNTER = 0
 OPTION_USED = {}
 
-function asdf() 
+function asdf()
 	print("AFDDSF")
 end
 
@@ -28,15 +28,22 @@ local function accept(choice)
 	end
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
-			return GAME[v[2]] > v[3]
+			if not GAME[v[2]] > v[3] then
+				return false
+			end
 		elseif v[1] == "=" then
-			return GAME[v[2]] == v[3]
+			if not GAME[v[2]] == v[3] then
+				return false
+			end
 		elseif v[1] == "-" then
-			return GAME[v[2]] < v[3]
+			if not GAME[v[2]] < v[3] then
+				return false
+			end
+		else
+			print("UNKNOWN OPERATOR")
 		end
 	end
-	print("UNKNOWN OPERATOR")
-	return false
+	return true
 end
 
 function get_options()

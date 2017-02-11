@@ -8,18 +8,19 @@ function ctx:enter(from)
 	ctx.from = from -- record previous state
 	local STAGESKIP = require 'states.stage'
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
-	GAME = 
+	GAME =
 	{
 		awkwardness = 50, confidence = 50, coolness = 50,
 		wifi_waifu = 10
 	}
-	GIRLS = 
+	GIRLS =
 	{
-		wifi_waifu = 
+		wifi_waifu =
 		{
+			name = "Wifi the router Waifu",
 			show = {like = {min = 0,  max = 100}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max = 10}, coolness = {0, 100}},
 			talk = {like = {min = 0,  max =  50}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max = 10}, coolness = {30, 60}},
-			date = {like = {min = 60, max =  50}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max =  5}, coolness = {30, 60}},
+			date = {like = {min = 50, max =  60}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max =  5}, coolness = {30, 60}},
 			interests = {"internet", "porn sites", "finding shortest paths"}
 		}
 	}
