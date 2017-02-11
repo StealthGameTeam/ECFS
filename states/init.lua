@@ -13,17 +13,7 @@ function ctx:enter(from)
 		awkwardness = 80, confidence = 20, coolness = 20,
 		wifi_waifu = 10
 	}
-	GIRLS =
-	{
-		wifi_waifu =
-		{
-			name = "Wifi the router Waifu",
-			show = {like = {min = 0,  max = 100}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max = 10}, coolness = {0, 100}},
-			talk = {like = {min = 0,  max =  50}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max = 10}, coolness = {30, 60}},
-			date = {like = {min = 50, max =  60}, awkwardness = {min = 0,max = 50}, confidence = {min = 0, max =  5}, coolness = {30, 60}},
-			interests = {"internet", "porn sites", "finding shortest paths"}
-		}
-	}
+	GIRLS = require 'girls'
 end
 
 function ctx:leave()
