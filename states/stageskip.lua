@@ -5,12 +5,9 @@ local GS = require 'lib.gamestate'
 local fun = require 'lib.fun'
 local ctx = GS.new()
 local options = {}
-local getGB = require 'render.background.find_background'
-local getGIRL= require 'render.girls.draw_girl'
+
 local DRAWCLICKS = true
 COUNTER = 0
-
-
 
 local function getText()
 	return require ('scenes.betweenDayParts.'..DAY.."-"..DAYPART).text
