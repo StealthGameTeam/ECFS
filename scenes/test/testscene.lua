@@ -16,7 +16,6 @@ local wifu = core.PreFill(helpers.add_like, "wifi_waifu")
 
 -- Scene : Background, portrait, choices
 local ch = {}
-local consequence = core.If()
 A(ch, {text = "Uwa so first Choice", requirements = {{"+", "coolness", 45}}, consequence = core.DoAll(wifu(5), helpers.change_state("STOP"))})
 A(ch, {text = "Uwa so Choice", requirements = {{"+", "coolness", 45}}, consequence = wifu(-1)})
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.PreFill(print, "B")})

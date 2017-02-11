@@ -46,7 +46,9 @@ function get_options()
  	local tbl = {}
  	fun.each(core.PreFill(fun.op.insertI, tbl), fun.take(4,fun.grep(accept, currentstate.choices)))
  	for k,v in ipairs(tbl) do
-		core.keyboard.whenDown("SCN", "SCN", tostring(k), core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options))
+ 		local func = core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options)
+		core.keyboard.whenDown("SCN", "SCN", tostring(k), func)
+		core.add_click({{x=0,y=675+k*50},{x=1000,y=675+k*50},{x=1000,y=725+k*50},{x=0,y=725+k*50}},func)
  	end
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
