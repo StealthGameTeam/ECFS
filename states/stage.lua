@@ -18,7 +18,6 @@ end
 local function track_OPTION_use(option)
 	COUNTER = COUNTER + 1
 	OPTION_USED[option..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] = COUNTER
-	pprint(OPTION_USED)
 end
 local function accept(choice)
 	if OPTION_USED[choice.text..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] then
@@ -26,13 +25,10 @@ local function accept(choice)
 	end
 	for k,v in pairs(choice.requirements) do
 		if v[1] == "+" then
-			print(v[2] .. " HIGHER THAN " .. v[3])
 			return GAME[v[2]] > v[3]
 		elseif v[1] == "=" then
-			print(v[2] .. " EQAL TO " .. v[3])
 			return GAME[v[2]] == v[3]
 		elseif v[1] == "-" then
-			print(v[2] .. " LOWER THAN " .. v[3])
 			return GAME[v[2]] < v[3]
 		end
 	end
@@ -52,7 +48,6 @@ function get_options()
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
  	DRAWGIRL =  getGIRL(currentstate.girl)
- 	print(DRAWGIRL)
  	core.add_click({{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
  	return tbl
 end

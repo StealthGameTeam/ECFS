@@ -1,12 +1,12 @@
 local bgs = {}
 bgs["wifi_waifu"] =  love.graphics.newImage("assets/test/thomas.png")
 
-
 return function(name)
 	local img = bgs[name]
+
 	if not img then
+		print("You moron, you forgot a girl-image: "..name)
 		return function()
-			print("You moron, you forgot a girl-image: "..name)
 		end
 	end
 	return function()
