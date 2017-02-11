@@ -101,18 +101,6 @@ function ctx:draw()
 	i=0
 	DRAWSCENE()
 	DRAWGIRL()
-	love.graphics.setColor(128,64,64)
-	love.graphics.rectangle("fill", 000,620,1000,1000)
-	love.graphics.setColor(255,255,255)
-	love.graphics.printf(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 50, 650, 620, 'center')
-	love.graphics.setColor(64,0,0)
-	
-	for j=0, 4 do
-	    love.graphics.rectangle("fill", 0,725+j*50, 720, 50, 10,10 )
-	end
-	love.graphics.setColor(255,255,255)
-	fun.each(print_option, options)
-	
 	if DRAWCLICKS then
 		for k,v in ipairs(core.clicks) do
 			local poly = core.cc[k]
@@ -125,6 +113,20 @@ function ctx:draw()
 			love.graphics.polygon("line",unpack(line))
 		end
 	end
+	
+	love.graphics.setColor(128,64,64)
+	love.graphics.rectangle("fill", 000,620,1000,1000)
+	love.graphics.setColor(255,255,255)
+	love.graphics.printf(SCENES[CURRENTSCENE].states[CURRENTSTATE].text, 50, 650, 620, 'center')
+	love.graphics.setColor(64,0,0)
+	
+	for j=0, 4 do
+	    love.graphics.rectangle("fill", 0,725+j*50, 720, 50, 10,10 )
+	end
+	love.graphics.setColor(255,255,255)
+	fun.each(print_option, options)
+	
+
 
 end
 

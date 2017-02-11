@@ -11,12 +11,12 @@ COUNTER = 0
 
 local function getText()
 	return require ('scenes.betweenDayParts.'..DAY.."-"..DAYPART).text
-
 end
 
 local function getOptions()
 	return require ('scenes.betweenDayParts.'..DAY.."-"..DAYPART).options
 end
+
 function ready_between()
 	for k,v in ipairs(getOptions()) do
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), v.consequence)
@@ -24,14 +24,16 @@ function ready_between()
 
 	end
 end
+
 function gotoStage(stagename)
 	CURRENTSTATE = TO
-
 	Gamestate.push(require 'states.stage')
 end
+
 local function stage()
 	Gamestate.push(require 'states.stage')
 end
+
 local function nextStage()
 	stage()
 	DAYPART = DAYPART + 1
@@ -39,13 +41,11 @@ local function nextStage()
 		DAYPART = 1
 		DAY = DAY + 1
 	end
-
 end
+
 function ctx:enter(from)
 	print("ENTERING STAGE")
-
 	nextStage()
-
 end
 
 function ctx:leave()
@@ -72,6 +72,18 @@ function ctx:draw()
 	i=0
 	DRAWSCENE()
 	DRAWGIRL()
+	if DRAWCLICKS then
+		for k,v in ipairs(core.clicks) do
+			local poly = core.cc[k]
+			local line = {}
+
+			for l,w in pairs(poly) do
+				line[#line+1] = w.x
+				line[#line+1] = w.y
+			end
+			love.graphics.polygon("line",unpack(line))
+		end
+	end
 	love.graphics.setColor(128,64,64)
 	love.graphics.rectangle("fill", 000,620,1000,1000)
 	love.graphics.setColor(255,255,255)
@@ -86,18 +98,7 @@ function ctx:draw()
 		print_option(v)
 	end
 
-	if DRAWCLICKS then
-		for k,v in ipairs(core.clicks) do
-			local poly = core.cc[k]
-			local line = {}
 
-			for l,w in pairs(poly) do
-				line[#line+1] = w.x
-				line[#line+1] = w.y
-			end
-			love.graphics.polygon("line",unpack(line))
-		end
-	end
 
 end
 
