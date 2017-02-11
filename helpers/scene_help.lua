@@ -21,12 +21,14 @@ helpers.add_stat = function(stat, diff)
 	return function()
 		print(stat ..": ".. GAME[stat].. " + " .. diff ..  " = " .. (GAME[stat] + diff))
 		GAME[stat] = GAME[stat] + diff
+		helpers.checkState(stat)
 	end
 end
 helpers.add_like = function(stat, diff)
 	return function()
 		print(stat ..": ".. GAME[stat].. " + " .. diff ..  " = " .. (GAME[stat] + diff))
 		GAME[stat] = GAME[stat] + diff
+		helpers.checkState(stat)
 	end
 end
 
@@ -41,4 +43,15 @@ helpers.addSay = function (state, name, next)
 	state.choices = choices
 	return name, state
 end
+
+helpers.checkState = function(stat)
+	if GAME[stat] < 0 then
+		print("Corrected: " .. stat .. ": " .. GAME[stat] .. " to a min. of 0.")
+		GAME[stat] = 0
+	elseif GAME[stat] > 100 then
+		print("Corrected: " .. stat .. ": " .. GAME[stat] .. " to a max. of 100.")
+		GAME[stat] = 100
+	end
+end
+
 return helpers
