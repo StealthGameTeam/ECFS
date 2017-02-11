@@ -42,7 +42,8 @@ function get_options()
  	end
  	options = tbl
  	DRAWSCENE =  getGB(currentstate.location)
- 	DRAWGIRL =  getGIRL(currentstate.location)
+ 	DRAWGIRL =  getGIRL(currentstate.girl)
+ 	print(DRAWGIRL)
  	core.add_click({{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
  	return tbl
 end

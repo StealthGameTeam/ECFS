@@ -3,14 +3,19 @@ local scene = {}
 scene.states = {}
 scene.start = "START"
 local S = core.PreFill(helpers.add_state, scene.states)
+
+-- Add choice to list
 local function A(list, choice)
 	list[#list+1] = choice
-
 end
+
+
 local con = core.PreFill(helpers.add_stat, "confidence")
 local cool = core.PreFill(helpers.add_stat, "coolness")
 local awk = core.PreFill(helpers.add_stat, "awkwardness")
 local wifu = core.PreFill(helpers.add_like, "wifi_waifu")
+
+
 -- Scene : Background, portrait, choices
 local ch = {}
 A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, consequence = core.DoAll(wifu(5), helpers.change_state("STOP"))})
@@ -24,5 +29,5 @@ A(ch, {text = "Uwa so second Choice", requirements = {{"+", "coolness", 45}}, co
 
 
 S("START", {location = "bus", girl = "wifi_waifu", choices = ch})
-S("STOP", {location = "bus", girl = "wifi_waifu", choices = {}})
+S("STOP", {location = "bus", girl = "asdf", choices = {}})
 return scene
