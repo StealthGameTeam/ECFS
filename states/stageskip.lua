@@ -1,5 +1,6 @@
 -- This state is responsible for setting the game up, based on the current loaded gamestate. It ensures all data for all objects is properly loaded.
 local helpers = require 'helpers.scene_help'
+local EFCS = require 'ECFS'
 
 local GS = require 'lib.gamestate'
 local fun = require 'lib.fun'
