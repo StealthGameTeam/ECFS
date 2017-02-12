@@ -9,7 +9,7 @@ function ctx:draw()
 	love.graphics.setColor(128,64,64)
 	love.graphics.rectangle("fill", 000,620,1000,1000)
 	love.graphics.setColor(255,255,255)
-	love.graphics.printf("You found a date, congrats. You actually managed to win the game...", 50, 650, 620, 'center')
+	love.graphics.printf("You found a date, congrats. Your mother is proud of you.", 50, 650, 620, 'center')
 	love.graphics.setColor(64,0,0)
 end
 
