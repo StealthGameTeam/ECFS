@@ -3,7 +3,7 @@ local bgs = {}
 bgs["mom"] =  {img = love.graphics.newImage("assets/girls/phoneIMG.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
 bgs["leia"] = {img = love.graphics.newImage("assets/girls/leiacut.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
 -- bgs["populargirl"] = {img = love.graphics.newImage("assets/girls/populargirl.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
--- bgs["librarygirl"] = {img = love.graphics.newImage("assets/girls/librarygirl.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
+ bgs["library_girl"] = {img = love.graphics.newImage("assets/girls/library2.PNG"), x = 80, y = 30, r=0.1, sx = 0.7, sy = 0.7}
 
 return function(name)
 	local img = bgs[name]
