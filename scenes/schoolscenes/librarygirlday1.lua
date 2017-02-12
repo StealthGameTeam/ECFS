@@ -183,7 +183,8 @@ S("caaabba", {location = "library", text = "You could go to the comics shop in t
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("good_exit")})
+	-- good ending
+	consequence = POPBACK})
 S("caaabbaa", {location = "library", text = "Hey, always happy to help a fellow comic fan.", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -309,7 +310,8 @@ S("dbabbaaaa", {location = "library", text = "There ya go.", girl = "library_gir
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("good_exit")})
+	-- good ending
+	consequence = POPBACK})
 S("dbabbaaaaa", {location = "library", text = "Goodbye!", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -348,8 +350,4 @@ C(ch, {text = "Could you explain how?",
 	consequence = helpers.change_state("daaaaa")})
 S("dbabbaababb", {location = "library", text = "Of course! I'm in a relationship with one!", girl = "library_girl", choices = ch})
 
-<<<<<<< HEAD
 return scene
-=======
-return scene
->>>>>>> 66e8cd467a7e66d37fef4e2ed7773cc9f5526359

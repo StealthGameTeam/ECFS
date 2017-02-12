@@ -78,7 +78,7 @@ S("aaaaa", {location = "bus", text = "I don't like Sci-fi?", girl = "busstop_gir
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aaaaaa", {location = "bus", text = "Bye?", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -93,7 +93,7 @@ S("aaaaab", {location = "bus", text = "This is a joke, right?", girl = "busstop_
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aaaaaab", {location = "bus", text = "I'm gonna go now. Bye!", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -105,7 +105,7 @@ S("aaaab", {location = "bus", text = "I'd rather get to know you a bit first, bu
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aaaaba", {location = "bus", text = "Oh, I have to go now. Bye!", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -147,7 +147,7 @@ S("aaba", {location = "bus", text = "Sorry, could you speak up a little?", girl 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aabaa", {location = "bus", text = "Bye then?", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -165,7 +165,7 @@ S("aabab", {location = "bus", text = "Yes. Yes you did.", girl = "busstop_girl",
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aababa", {location = "bus", text = "Oh, hey, the bus is here. I need to go.", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -189,7 +189,7 @@ S("aababcaa", {location = "bus", text = "...\nYou're kind of weird.", girl = "bu
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aababcaaa", {location = "bus", text = "Oh, I have to go now. Bye!", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -201,7 +201,7 @@ S("aabb", {location = "bus", text = "Then you need to practice more", girl = "bu
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("aabba", {location = "bus", text = "Bye then?", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -222,7 +222,7 @@ S("ba", {location = "bus", text = "Yes, you have.", girl = "busstop_girl", choic
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("baa", {location = "bus", text = "I have to go now.", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -243,7 +243,7 @@ S("bba", {location = "bus", text = "Could you stop staring at me like that?", gi
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("bbaa", {location = "bus", text = "I'm gonna go now.", girl = "busstop_girl", choices = ch})
 
 local gh = {}
@@ -270,7 +270,7 @@ S("bbaba", {location = "bus", text = "That much is obvious.", girl = "busstop_gi
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("bbabab", {location = "bus", text = "Bye then?", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -282,7 +282,7 @@ S("bbabb", {location = "bus", text = "Okaaaaay...", girl = "busstop_girl", choic
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 S("bbabc", {location = "bus", text = "You're weird. I'm gonna go now.", girl = "busstop_girl", choices = ch})
 
 local ch = {}
@@ -330,7 +330,8 @@ S("6", {location = "bus", text = "*dies*\n*people around you start screaming*", 
 local ch = {}
 C(ch, {text = "GAME OVER",
 	requirements = {},
-	consequence = helpers.change_state("gave_over")})
+	-- GAME OVER
+	consequence = POPBACK})
 S("7", {location = "bus", text = "*police shows up and takes you to jail*", girl = "busstop_girl", choices = ch})
 
 return scene

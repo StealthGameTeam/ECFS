@@ -157,7 +157,7 @@ S("aba", {location = "school", text = "I really don't recall you", girl = "popul
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("abaa", {location = "school", text = "Bye then?", girl = "popular_girl", choices = ch})
 
@@ -243,12 +243,9 @@ S("ccaaaa", {location = "school", text = "That's kind of noticable", girl = "pop
 local ch = {}
 C(ch, {text = "Oh, I should be going now. See you later!",
 	requirements = {},
-	consequence = helpers.change_state("good")})
+	-- good ending
+	consequence = POPBACK})
 
 S("ccaaaaa", {location = "school", text = "Yeah. *Bell rings*", girl = "popular_girl", choices = ch})
-
-
-local good_ending = "good"
-local bad_ending = "exit"
 
 return scene
