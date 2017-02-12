@@ -1,5 +1,5 @@
 Gamestate = require 'lib.gamestate'
-
+ANDROID = true
 CURRENTSCENE = "momscreen"
 CURRENTSTATE = "PHONE"
 --print = function() end
@@ -12,7 +12,6 @@ SS[#SS+1] = "assets/ltrfail.wav"
 SS[#SS+1] ="assets/pirfail1.wav"
 SS[#SS+1] = "assets/pirfail2.wav"
 SS[#SS+1] ="assets/whifail.wav"
-
 MUSIC = TEsound.playLooping("assets/battle music.wav", {"music"})
 interruptMusicToPlayFail = function(name)
 	return function()
@@ -60,6 +59,8 @@ DRAWGIRL  = function() end
 function love.load()
     Gamestate.registerEvents()
  	Gamestate.switch(require 'states.1_pre_game')
+ 	
+
 end
 function love.draw()
 	love.graphics.print(love.timer.getFPS(), 10,10)
