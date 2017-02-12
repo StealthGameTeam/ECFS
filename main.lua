@@ -4,7 +4,14 @@ CURRENTSCENE = "momscreen"
 CURRENTSTATE = "START"
 --print = function() end
 pprint = require 'lib.pprint'
-
+require 'lib.TEsound'
+MUSIC = TEsound.playLooping("assets/theme.ogg", {"music"})
+interruptMusicToPlayFail = function(name)
+	return function()
+		TEsound.stop("music", 0.1)
+		TEsound.play(name, {"EFF"}, 1, 1, core.PreFill(TEsound.volume, "music", 1))
+	end
+end
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
 require 'inputoutput.click'
@@ -46,6 +53,6 @@ function reverse(map)
 end
 function love.update(dt)
 	--- Events
-
+	TEsound.cleanup()
 
 end
