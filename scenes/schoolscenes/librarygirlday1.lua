@@ -179,3 +179,4 @@ C(ch, {text = "Ah, uhm, thank you.",
 	consequence = helpers.change_state("dbababaaaaa")})
 S("dbababaaaa", {location = "library", text = "No problemo, this is my job *smile widens*", girl = "library_girl", choices = ch})
 
+return scene
