@@ -28,14 +28,18 @@ local ch = {}
 
 A(ch, {text = "Go to bed",
 	requirements = {},
-	consequence = helpers.change_scene("busstopgirlday1")})
+	consequence = helpers.change_state("notice")})
 S("START", {location = "room", text = "You're in your room...", girl = "nil", choices = ch})
-
+local ch = {}
+A(ch, {text = "Go to bed",
+	requirements = {},
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.no_date')})
+S("notice", {location = "room", text = "You notice the poster of Leia on your wall.", girl = "nil", choices = ch})
 
 local ch = {}
 A(ch, {text = "Sigh and go to bed.",
 	requirements = {},
-	consequence = helpers.change_scene("busstopgirlday1")})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.no_date')})
 A(ch, {text = "Start a conversation with Leia",
 	requirements = {},
 	consequence = helpers.change_scene("leiaposter")})

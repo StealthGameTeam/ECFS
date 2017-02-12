@@ -7,7 +7,7 @@ r.options = {
 		},
 		{	text = "Go Home",
 			requirements = {},
-			consequence = getSwitch("room")
+			consequence = getSwitch("busstopgirlday1")
 		},
 		
 	}
