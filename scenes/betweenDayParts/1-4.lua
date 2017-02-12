@@ -5,15 +5,10 @@ r.options = {
 			requirements = {},
 			consequence = getSwitch("populargirl1")
 		},
-		{text = "Look for information on dating in the library.",
-			requirements = {},
-			consequence = getSwitch("librarygirlday1")
-		}, 
-		{
-			text = "Look for girls in the gym.",
-			requirements = {},
-			consequence = function() print("3") end
-		}
+		-- {text = "Look for information on dating in the library.",
+		-- 	requirements = {},
+		-- 	consequence = getSwitch("librarygirlday1")
+		-- }
 	}
 
 return r

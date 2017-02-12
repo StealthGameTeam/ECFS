@@ -24,18 +24,19 @@ scene.events[#scene.events+1] = core.PreFill(core.add_click, {{x=36,y=54},{x=179
 -- Scene : Background, portrait, choices
 local ch = {}
 
-A(ch, {text = "Leave home towards bus stop",
+A(ch, {text = "Go to bed",
 	requirements = {},
 	consequence = helpers.change_scene("busstopgirlday1")})
-
-
 S("START", {location = "room", text = "You're in your room...", girl = "nil", choices = ch})
 
 
 local ch = {}
-A(ch, {text = "Sigh and leave home towards bus stop",
+A(ch, {text = "Sigh and go to bed.",
 	requirements = {},
 	consequence = helpers.change_scene("busstopgirlday1")})
+A(ch, {text = "Start a conversation with Leia",
+	requirements = {},
+	consequence = helpers.change_scene("leiaposter")})
 S("leia0", {location = "room", text = "That's a nice poster...", girl = "nil", choices = ch})
 
 

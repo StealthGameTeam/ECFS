@@ -1,7 +1,7 @@
 Gamestate = require 'lib.gamestate'
 
 CURRENTSCENE = "momscreen"
-CURRENTSTATE = "START"
+CURRENTSTATE = "PHONE"
 --print = function() end
 pprint = require 'lib.pprint'
 
@@ -22,7 +22,8 @@ SCENES = {momscreen = require 'scenes.schoolscenes.momcall',
 	populargirl1 = require 'scenes.schoolscenes.populargirl1',
 	busstopgirlday1 = require 'scenes.schoolscenes.busstopgirlday1',
 	librarygirlday1 = require 'scenes.schoolscenes.librarygirlday1',
-	momscreen = require 'scenes.room.room'
+	room = require 'scenes.room.room',
+	leiaposter = require 'scenes.room.leiaposter'
 }
 GIRLS = {}
 GAME = {}

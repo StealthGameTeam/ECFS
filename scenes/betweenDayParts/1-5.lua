@@ -1,14 +1,15 @@
 local r = {}
-r.text = "It's getting late, I'm getting tired."
+r.text = "School is over and you have noting planned for the afternoon, yet."
 r.options = {
+		{ text = "Look for information on dating in the library.",
+			requirements = {},
+			consequence = getSwitch("librarygirlday1")
+		},
 		{	text = "Go Home",
 			requirements = {},
-			consequence = function() print("1") end
+			consequence = getSwitch("room")
 		},
-		{	text = "Call a girl to ask her on a date.",
-			requirements = {},
-			consequence = function() print("1") end
-		}
+		
 	}
 
 return r
