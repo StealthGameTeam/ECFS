@@ -18,7 +18,7 @@ local function KILL()
 	Gamestate.switch(require "states.endings.died")
 end
 scene.events = {}
-scene.events[#scene.events+1] = core.PreFill(	core.When,"A", "B", core.timeDown(5), KILL)
+scene.events[#scene.events+1] = core.PreFill(	core.When,"A", "B", core.timeDown(10), KILL)
 
 --scene.events[#scene.events+1] = core.PreFill(core.add_click, {{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
 
@@ -335,7 +335,7 @@ local ch = {}
 C(ch, {text = "GAME OVER",
 	requirements = {},
 	-- GAME OVER
-	consequence = POPBACK})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.arrested')})
 S("7", {location = "bus", text = "*police shows up and takes you to jail*", girl = "busstop_girl", choices = ch})
 
 return scene
