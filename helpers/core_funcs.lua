@@ -81,7 +81,13 @@ core.While = function(id1, id2, cfunc, func)
 	end
 end
 
-
+core.timeDown = function(time)
+	local t = 0
+	return function(dt)
+		t = t + dt
+		return t > time
+	end
+end
 core.When = function(id1, id2, cfunc, func)
 	core.events[id1] =  core.events[id1]  or {}
 	local a = false
@@ -143,6 +149,7 @@ core.If = function(i, the, els)
 		end
 	end
 end
+
 core.rotate_point = function(p, angle)
 	
    local s = math.sin(angle)
