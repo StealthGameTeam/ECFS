@@ -4,9 +4,10 @@ local GS = require 'lib.gamestate'
 
 local ctx = GS.new()
 local img = nil
-
+local l_img = nil
 function ctx:enter(from)
 	img = love.graphics.newImage("assets/backgrounds/bedroom.PNG")
+	l_img = love.graphics.newImage("assets/girls/leiacut.PNG")
 	ctx.from = from -- record previous state
 	local STAGESKIP = require 'states.stageskip'
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
@@ -36,7 +37,10 @@ end
 function ctx:draw()
 	love.graphics.setColor(128,128,128)
 	love.graphics.draw(img,0,0,0,1.15,1.15)
+	love.graphics.setColor(158,158,158)
+	love.graphics.draw(l_img,200,200,0.1,0.7,0.7)
 	love.graphics.setColor(255,255,255)
+
 	love.graphics.push()
 	love.graphics.setFont(love.graphics.newFont(64))
 	love.graphics.printf("A Bit of Love",  50,100,620, "center")

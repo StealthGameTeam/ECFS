@@ -3,6 +3,7 @@ core.cc = {}
 require 'systems.collision.lib'
 
 function love.mousepressed( x, y, button, istouch )
+	print(x,y)
 	if button == 1 then
 		for k,v in ipairs(core.clicks) do
 			v(x,y)

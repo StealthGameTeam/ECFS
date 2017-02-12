@@ -10,6 +10,15 @@ core.And = function(cfuncs)
 		return true
 	end
 end
+function core.DoOnce(func)
+	local once = true
+	return function()
+		if once then
+			once = false
+			func()
+		end
+	end
+end
 
 local loaded_paths = {}
 core.my_require = function (str)
