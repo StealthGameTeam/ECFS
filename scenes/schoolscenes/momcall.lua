@@ -25,7 +25,7 @@ A(ch, {text = "Pick up phone",
 	requirements = {},
 	consequence = helpers.change_state("1")})
 
-S("PHONE", {location = "school", text = "Phone: 'rings'", girl = "mom", choices = ch})
+S("PHONE", {location = "school", text = "Phone: *rings*", girl = "mom", choices = ch})
 
 
 local ch = {}

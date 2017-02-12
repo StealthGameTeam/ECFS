@@ -87,14 +87,14 @@ S("aaaa", {location = "school", text = "My what? I don't do chess, that's for ne
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("aaaaa", {location = "school", text = "What even...? I'm going away.", girl = "popular_girl", choices = ch})
 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("aaaab", {location = "school", text = "Bye then, weirdo.", girl = "popular_girl", choices = ch})
 
@@ -122,7 +122,7 @@ S("aabaa", {location = "school", text = "I really don't recall you", girl = "pop
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("aabaaa", {location = "school", text = "Bye then?", girl = "popular_girl", choices = ch})
 
@@ -136,7 +136,7 @@ S("aac", {location = "school", text = "Ehrm... Okay?", girl = "popular_girl", ch
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("aaca", {location = "school", text = "Bye then?", girl = "popular_girl", choices = ch})
 
@@ -171,7 +171,7 @@ S("b", {location = "school", text = "What...? Ew!", girl = "popular_girl", choic
 local ch = {}
 C(ch, {text = "Leave",
 requirements = {},
-consequence = helpers.change_state("exit")})
+consequence = POPBACK})
 
 S("ba", {location = "school", text = "Go away, weirdo!", girl = "popular_girl", choices = ch})
 
@@ -191,7 +191,7 @@ S("c", {location = "school", text = "What? Now in English?", girl = "popular_gir
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("ca", {location = "school", text = "I'm gonna go now.", girl = "popular_girl", choices = ch})
 
@@ -222,7 +222,7 @@ S("ccaa", {location = "school", text = "Yes you did. *starts laughing*", girl = 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("exit")})
+	consequence = POPBACK})
 
 S("ccaab", {location = "school", text = "Okay, bye then?", girl = "popular_girl", choices = ch})
 
