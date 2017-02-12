@@ -28,7 +28,7 @@ C(ch, {text = "Good evening, Princess",
 C(ch, {text = "Hi there, Leia-chan",
 	requirements = {},
 	consequence = helpers.change_state("1")})
-S("start", {location = "room", text = "You walk up to the poster.", girl = "leia", choices = ch})
+S("start", {location = "leia", text = "You walk up to the poster.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "My day has been aweful",
@@ -37,7 +37,7 @@ C(ch, {text = "My day has been aweful",
 C(ch, {text = "My day has been okay.",
 	requirements = {},
 	consequence = helpers.change_state("2")})
-S("1", {location = "room", text = "You know that you are talking to your poster?", girl = "leia", choices = ch})
+S("1", {location = "leia", text = "You know that you are talking to your poster?", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "Yes, tell me about it.",
@@ -46,37 +46,37 @@ C(ch, {text = "Yes, tell me about it.",
   C(ch, {text = "Ugh, really?",
   	requirements = {},
   	consequence = helpers.change_state("3")})
-S("2", {location = "room", text = "The poster doesn't respond", girl = "leia", choices = ch})
+S("2", {location = "leia", text = "The poster doesn't respond", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "Leia-chan, do you know anyone to go on a date with?",
 	requirements = {},
 	consequence = helpers.change_state("4")})
-S("3", {location = "room", text = "No answer.", girl = "leia", choices = ch})
+S("3", {location = "leia", text = "No answer.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "Mmm... That's a good idea",
 	requirements = {},
 	consequence = helpers.change_state("5")})
-S("4", {location = "room", text = "The poster doesn't respond.", girl = "leia", choices = ch})
+S("4", {location = "leia", text = "The poster doesn't respond.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "You know what? I'll go and do that.",
 	requirements = {},
 	consequence = helpers.change_state("6")})
-S("5", {location = "room", text = "Paper can't talk", girl = "leia", choices = ch})
+S("5", {location = "leia", text = "Paper can't talk", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "Thanks for the advice, Princess.",
 	requirements = {},
 	consequence = helpers.change_state("7")})
-S("6", {location = "room", text = "Princess Leia remains unmoved.", girl = "leia", choices = ch})
+S("6", {location = "leia", text = "Princess Leia remains unmoved.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "I'm going to sleep now, tomorrow will be a long day.",
 	requirements = {},
 	consequence = helpers.change_state("8")})
-S("7", {location = "room", text = "You just thanked your poster.", girl = "leia", choices = ch})
+S("7", {location = "leia", text = "You just thanked your poster.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "*caress Leia's face with a finger*",
@@ -85,12 +85,12 @@ C(ch, {text = "*caress Leia's face with a finger*",
 C(ch, {text = "*kiss the poster goodnight*",
 	requirements = {},
 	consequence = helpers.change_state("9")})
-S("8", {location = "room", text = "Leia doesn't look tired at all.", girl = "leia", choices = ch})
+S("8", {location = "leia", text = "Leia doesn't look tired at all.", girl = "leia", choices = ch})
 
 local ch = {}
 C(ch, {text = "Go to sleep",
 	requirements = {},
-	consequence = POPBACK})
-S("9", {location = "room", text = "The poster doesn't respond.", girl = "leia", choices = ch})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.no_date')})
+S("9", {location = "leia", text = "The poster doesn't respond.", girl = "leia", choices = ch})
 
 return scene

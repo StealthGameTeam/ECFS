@@ -169,6 +169,7 @@ S("aabab", {location = "bus", text = "Yes. Yes you did.", girl = "busstop_girl",
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
+	-- medium eding (NO FAILSOUND)
 	consequence = POPBACK})
 S("aababa", {location = "bus", text = "Oh, hey, the bus is here. I need to go.", girl = "busstop_girl", choices = ch})
 
@@ -334,8 +335,7 @@ S("6", {location = "bus", text = "*dies*\n*people around you start screaming*", 
 local ch = {}
 C(ch, {text = "GAME OVER",
 	requirements = {},
-	-- GAME OVER
-	consequence = POPBACK})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.arrested')})
 S("7", {location = "bus", text = "*police shows up and takes you to jail*", girl = "busstop_girl", choices = ch})
 
 return scene

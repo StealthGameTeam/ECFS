@@ -243,8 +243,7 @@ S("ccaaaa", {location = "school", text = "That's kind of noticable", girl = "pop
 local ch = {}
 C(ch, {text = "Oh, I should be going now. See you later!",
 	requirements = {},
-	-- good ending
-	consequence = POPBACK})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.found_a_date')})
 
 S("ccaaaaa", {location = "school", text = "Yeah. *Bell rings*", girl = "popular_girl", choices = ch})
 

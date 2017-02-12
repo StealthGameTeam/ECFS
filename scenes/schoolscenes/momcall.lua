@@ -43,7 +43,7 @@ A(ch, {text = "What family Dinner?",
 A(ch, {text = "I remember..",
 	requirements = {},
 	consequence = helpers.change_state("3B")})
-S("2", {location = "school",  text = "Hi Jules!\n I wanted to remind you of the family dinner we have in a week.", girl = "mom", choices = ch})
+S("2", {location = "school",  text = "Hi Jules!\n I wanted to remind you of the family dinner we have tomorrow.", girl = "mom", choices = ch})
 
 
 local ch = {}
@@ -92,7 +92,7 @@ local ch = {}
 A(ch, {text = "That's fine..",
 	requirements = {},
 	consequence = helpers.change_state("7")})
-S("6", {location = "school",  text = "Remember, it's in a week.\n\n SHIT SHIT SHIT SHE'LL DISOWN ME IF SHE FIGURES OUT I'M LYING", girl = "mom", choices = ch})
+S("6", {location = "school",  text = "Remember, it's tomorrow.\n\n *SHIT SHIT SHIT SHE'LL DISOWN ME IF SHE FIGURES OUT I'M LYING*", girl = "mom", choices = ch})
 
 
 local ch = {}
