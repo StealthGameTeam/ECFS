@@ -335,10 +335,7 @@ S("6", {location = "bus", text = "*dies*\n*people around you start screaming*", 
 local ch = {}
 C(ch, {text = "GAME OVER",
 	requirements = {},
-<<<<<<< HEAD
-=======
 	-- GAME OVER
->>>>>>> a4bc04383c2891831e1d675e64722bdbcdc02961
 	consequence = core.PreFill(Gamestate.switch, require 'states.endings.arrested')})
 S("7", {location = "bus", text = "*police shows up and takes you to jail*", girl = "busstop_girl", choices = ch})
 
