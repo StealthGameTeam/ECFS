@@ -4,7 +4,7 @@ bgs["mom"] =  {img = love.graphics.newImage("assets/girls/phoneIMG.PNG"), x = 15
 bgs["leia"] = {img = love.graphics.newImage("assets/girls/leiacut.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
 bgs["popular_girl"] = {img = love.graphics.newImage("assets/girls/leiacut.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
 bgs["library_girl"] = {img = love.graphics.newImage("assets/girls/library2.PNG"), x = 80, y = 30, r=0.1, sx = 0.7, sy = 0.7}
-bgs["busstop_girl"] = {img = love.graphics.newImage("assets/girls/leiacut.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
+bgs["busstop_girl"] = {img = love.graphics.newImage("assets/girls/busstop_girl.PNG"), x = 150, y = 150, r=0.1, sx = 0.8, sy = 0.8}
 
 return function(name)
 	local img = bgs[name]
