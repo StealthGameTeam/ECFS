@@ -7,7 +7,7 @@ r.options = {
 		},
 		{text = "Look for information on dating in the library.",
 			requirements = {},
-			consequence = function() print("2") end
+			consequence = getSwitch("librarygirlday1")
 		}, 
 		{
 			text = "Look for girls in the gym.",

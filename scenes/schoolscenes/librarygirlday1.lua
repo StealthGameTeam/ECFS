@@ -348,4 +348,8 @@ C(ch, {text = "Could you explain how?",
 	consequence = helpers.change_state("daaaaa")})
 S("dbabbaababb", {location = "library", text = "Of course! I'm in a relationship with one!", girl = "library_girl", choices = ch})
 
+<<<<<<< HEAD
 return scene
+=======
+return scene
+>>>>>>> 66e8cd467a7e66d37fef4e2ed7773cc9f5526359

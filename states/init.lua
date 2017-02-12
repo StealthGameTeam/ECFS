@@ -3,8 +3,10 @@
 local GS = require 'lib.gamestate'
 
 local ctx = GS.new()
+local img = nil
 
 function ctx:enter(from)
+	img = love.graphics.newImage("assets/backgrounds/bedroom.PNG")
 	ctx.from = from -- record previous state
 	local STAGESKIP = require 'states.stageskip'
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
@@ -32,7 +34,16 @@ function ctx:update(dt)
 end
 
 function ctx:draw()
-	love.graphics.print("Press Space to go to ...", 300,100)
+	love.graphics.setColor(128,128,128)
+	love.graphics.draw(img,0,0,0,1.15,1.15)
+	love.graphics.setColor(255,255,255)
+	love.graphics.push()
+	love.graphics.setFont(love.graphics.newFont(64))
+	love.graphics.printf("A Bit of Love",  50,100,620, "center")
+  love.graphics.setFont(love.graphics.newFont(32))
+	love.graphics.printf("Press Space to start", 50,800,620, "center")
+	love.graphics.pop()
+	love.graphics.setFont(love.graphics.newFont(14))
 
 
 end
