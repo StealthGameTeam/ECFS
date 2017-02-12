@@ -5,21 +5,38 @@ CURRENTSTATE = "PHONE"
 --print = function() end
 pprint = require 'lib.pprint'
 require 'lib.TEsound'
-MUSIC = TEsound.playLooping("assets/theme.ogg", {"music"})
+local SS = {}
+SS[#SS+1] = "assets/batfail.wav"
+SS[#SS+1] = "assets/hedfail.wav"
+SS[#SS+1] = "assets/ltrfail.wav"
+SS[#SS+1] ="assets/pirfail1.wav"
+SS[#SS+1] = "assets/pirfail2.wav"
+SS[#SS+1] ="assets/whifail.wav"
+
+MUSIC = TEsound.playLooping("assets/battle music.wav", {"music"})
 interruptMusicToPlayFail = function(name)
 	return function()
-		TEsound.stop("music", 0.1)
+		TEsound.volume("music", 0)
+		TEsound.stop("EFF")
+		print(name)
 		TEsound.play(name, {"EFF"}, 1, 1, core.PreFill(TEsound.volume, "music", 1))
 	end
+end
+local FS = 1
+RANDOMFAIL = function()
+	FS = (FS%(#SS)) + 1
+	return interruptMusicToPlayFail(SS[FS])
 end
 require 'helpers.core_funcs'
 require 'inputoutput.keyboard_input'
 require 'inputoutput.click'
 function POPBACK ()
+	
 	IGNORE_THIS_ROUND = true
 	core.events = {}
 	core.clicks = {}
 	print("POP")
+	RANDOMFAIL()()
 	Gamestate.pop()
 	ready_between()
 	

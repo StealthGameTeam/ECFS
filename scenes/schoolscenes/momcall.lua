@@ -61,7 +61,7 @@ S("3B", {location = "school",  text = "... That's good.", girl = "mom", choices 
 local ch = {}
 A(ch, {text = "I don't have a girlfriend.",
 	requirements = {},
-	consequence = core.DoAll(con(-10), awk(10), cool(-10), helpers.change_state("5A"))})
+	consequence = core.DoAll(RANDOMFAIL(), con(-10), awk(10), cool(-10), helpers.change_state("5A"))})
 A(ch, {text = "I don't think she can come over that day.",
 	requirements = {},
 	consequence = core.DoAll(con(10), awk(10), helpers.change_state("5B"))})
