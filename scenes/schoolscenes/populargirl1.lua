@@ -248,9 +248,9 @@ C(ch, {text = "Oh, I should be going now. See you later!",
 S("ccaaaaa", {location = "school", text = "Yeah. *Bell rings*", girl = "popular_girl", choices = ch})
 
 
-C(ch, {text = "I like your face",
+C(ch, {text = "Leave",
 	requirements = {},
 	consequence = POPBACK})
-S("d", {location = "school", text = "You arrive at school.", girl = "popular_girl", choices = ch})
+S("d", {location = "school", text = "I have a boyfriend!", girl = "popular_girl", choices = ch})
 
 return scene
