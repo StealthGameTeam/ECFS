@@ -60,7 +60,7 @@ S("aaa", {location = "library", text = "So, would you mind being a little quiete
 local ch = {}
 C(ch, {text = "*Quite some time passes and you go home*",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.found_a_date')})
 S("aaaa", {location = "library", text = "Okay, have fun! If you need help, just ask.", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -81,7 +81,7 @@ S("ba", {location = "library", text = "Was that what you wanted to say?", girl =
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 S("baa", {location = "library", text = "Bye then?", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -117,7 +117,7 @@ S("babbaa", {location = "library", text = "Ah, that's better. And now for the is
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = helpers.change_state("god_exit")})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.found_a_date')})
 S("babbaaa", {location = "library", text = "Ah, here you go. Good luck with it!", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -150,7 +150,7 @@ S("caaa", {location = "library", text = "Still here? Need help finding something
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 S("caaaa", {location = "library", text = "Ah, that's fine as well. Have a nice evening!", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -183,8 +183,7 @@ S("caaabba", {location = "library", text = "You could go to the comics shop in t
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	-- good ending
-	consequence = POPBACK})
+	consequence = core.PreFill(Gamestate.switch, require 'states.endings.found_a_date')})
 S("caaabbaa", {location = "library", text = "Hey, always happy to help a fellow comic fan.", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -235,7 +234,7 @@ S("daaaaaa", {location = "library", text = "I hope you understand better now.", 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 S("daaaaaaa", {location = "library", text = "Good luck!", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -256,7 +255,7 @@ S("dba", {location = "library", text = "We have some great books about that.", g
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 S("dbaa", {location = "library", text = "Bye then?", girl = "library_girl", choices = ch})
 
 local ch = {}
@@ -268,7 +267,7 @@ S("dbab", {location = "library", text = "Sure, wait a moment\n*smiles*", girl = 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 C(ch, {text = "*stay and awkwardly stand around*",
 	requirements = {},
 	consequence = helpers.change_state("dbabb")})
@@ -332,7 +331,7 @@ S("dbabbaaba", {location = "library", text = "*laughs*", girl = "library_girl", 
 local ch = {}
 C(ch, {text = "Leave",
 	requirements = {},
-	consequence = POPBACK})
+	consequence = helpers.change_scene("busstopgirlday1")})
 S("dbabbaabaa", {location = "library", text = "Bye then?", girl = "library_girl", choices = ch})
 
 local ch = {}
