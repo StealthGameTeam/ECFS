@@ -11,6 +11,17 @@ function ctx:enter(from)
 	ctx.from = from -- record previous state
 	local STAGESKIP = require 'states.stageskip'
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
+	
+	--------------------------------------
+	
+	local function asdf()
+		print("AFDDSF")
+		
+	end
+	core.add_click({{x=0,y=0}, {x=1000,y=0}, {x=1000,y=1000}, {x=0,y=1000}}, core.PreFill(Gamestate.switch, STAGESKIP))
+	
+	--------------------------------------
+	
 	GAME =
 	{
 		awkwardness = 80, confidence = 20, coolness = 20,
