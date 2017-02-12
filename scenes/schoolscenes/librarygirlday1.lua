@@ -22,12 +22,13 @@ scene.events = {}
 -- Dpeth first
 
 local ch = {}
-C(ch, {text = "Hi, I'm here to talk to The Girls",
-	requirements = {},
-	consequence = helpers.change_state("a")})
+
 C(ch, {text = "Did you know the king of hearts is the only king without a moustache.",
 	requirements = {},
 	consequence = helpers.change_state("b")})
+	C(ch, {text = "Hi, I'm here to talk to The Girls",
+		requirements = {},
+		consequence = helpers.change_state("a")})
 C(ch, {text = "*start looking at books*",
 	requirements = {},
 	consequence = helpers.change_state("c")})
