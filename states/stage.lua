@@ -14,7 +14,6 @@ OPTION_USED = {}
 function asdf()
 	print("AFDDSF")
 end
-
 local function track_OPTION_use(option)
 	COUNTER = COUNTER + 1
 	OPTION_USED[option..":"..SCENES[CURRENTSCENE].states[CURRENTSTATE].girl] = COUNTER

@@ -14,8 +14,12 @@ local con = core.PreFill(helpers.add_stat, "confidence")
 local cool = core.PreFill(helpers.add_stat, "coolness")
 local awk = core.PreFill(helpers.add_stat, "awkwardness")
 local wifu = core.PreFill(helpers.add_like, "busstop_girl")
-
+local function KILL()
+	Gamestate.switch(require "states.endings.died")
+end
 scene.events = {}
+scene.events[#scene.events+1] = core.PreFill(	core.When,"A", "B", core.timeDown(5), KILL)
+
 --scene.events[#scene.events+1] = core.PreFill(core.add_click, {{x=0,y=0},{x=200,y=0},{x=200,y=300},{x=0,y=200}}, asdf)
 
 -- Scene : Background, portrait, choices
