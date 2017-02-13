@@ -1,5 +1,5 @@
 Gamestate = require 'lib.gamestate'
-ANDROID = true
+ANDROID = false
 CURRENTSCENE = "momscreen"
 CURRENTSTATE = "PHONE"
 --print = function() end
