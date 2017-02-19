@@ -80,5 +80,23 @@ scale = function()
 		local width = love.graphics.getWidth()
 		local height = love.graphics.getHeight()
 		love.graphics.scale(width/720, height/960)
+		-- print("Scaled to:" .. width/720 .. " : " .. height/960)
 	end
+end
+
+convert = function (poly)
+	local vertices = {}
+	for i,v in ipairs(poly) do
+		vertices[#vertices+1] = v['x']
+		vertices[#vertices+1] = v['y']
+	end
+	return vertices
+end
+
+convert_poly = function (poly)
+	local new_poly = {}
+	for i,v in ipairs(poly) do
+		new_poly[#new_poly+1] = {x = v.x*(love.graphics.getWidth()/720), y = v.y*(love.graphics.getHeight()/960)}
+	end
+	return new_poly
 end

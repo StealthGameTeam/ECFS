@@ -62,8 +62,10 @@ function get_options()
  	for k,v in ipairs(tbl) do
  		local func = core.DoAll(core.PreFill(track_OPTION_use, v.text), v.consequence, get_options)
 		core.keyboard.whenDown("SCN", "SCN", tostring(k), func)
-		core.add_click({{x=0,y=675+k*50},{x=1000,y=675+k*50},{x=1000,y=725+k*50},{x=0,y=725+k*50}},func)
+		core.add_click({{x=0,y=675+k*50},{x=2000,y=675+k*50},{x=2000,y=725+k*50},{x=0,y=725+k*50}},func)
  	end
+	--core.add_click({{x=0,y=0}, {x=2000,y=0}, {x=2000,y=2000}, {x=0,y=2000}}, function(x,y) print(x) end)
+
  	for k,v in ipairs(SCENES[CURRENTSCENE].events) do
  		v()
  	end
@@ -132,9 +134,6 @@ function ctx:draw()
 	end
 	love.graphics.setColor(255,255,255)
 	fun.each(print_option, options)
-	
-
-
 end
 
 return ctx

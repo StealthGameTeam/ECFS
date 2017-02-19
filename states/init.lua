@@ -13,7 +13,7 @@ function ctx:enter(from)
 	core.keyboard.whenDown("PAUSE", "PAUSE", "space", core.PreFill(Gamestate.switch, STAGESKIP))
 	
 	core.add_click({{x=0,y=0}, {x=2000,y=0}, {x=2000,y=2000}, {x=0,y=2000}}, core.PreFill(Gamestate.switch, STAGESKIP))
-
+	
 	GAME =
 	{
 		awkwardness = 80, confidence = 20, coolness = 20,
@@ -40,12 +40,14 @@ end
 function ctx:draw()
 	scale()
 
+	-- love.graphics.setColor(255,0,0)
+	-- love.graphics.polygon('fill', convert({{x=100,y=100}, {x=200,y=100}, {x=200,y=200}, {x=100,y=200}}))
 	love.graphics.setColor(128,128,128)
 	love.graphics.draw(img,0,0,0,1.15,1.15)
 	love.graphics.setColor(158,158,158)
 	love.graphics.draw(l_img,200,200,0.1,0.7,0.7)
 	love.graphics.setColor(255,255,255)
-
+	
 	love.graphics.push()
 	love.graphics.setFont(love.graphics.newFont(64))
 	love.graphics.printf("A Bit of Love",  50,100,620, "center")

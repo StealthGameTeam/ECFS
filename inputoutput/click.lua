@@ -13,9 +13,9 @@ end
 
 core.add_click = function(poly, func)
 	core.cc[#core.clicks+1] = poly
-
+	-- love.graphics.polygon('fill', convert(poly))
 	core.clicks[#core.clicks+1] = function(x,y)
-		if point_in_polygon(poly , x,y) then
+		if point_in_polygon(convert_poly(poly), x,y) then
 			func()
 		end
 	end

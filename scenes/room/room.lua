@@ -10,7 +10,7 @@ local  A = helpers.addChoice
 function asdf(str) 
 	return function()
 		print("A")
-		--interruptMusicToPlayFail("assets/interrupt.mp3")()
+		RANDOMFAIL()
 		helpers.change_state(str)()
 		get_options()
 	end
