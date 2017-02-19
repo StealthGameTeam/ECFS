@@ -84,17 +84,9 @@ function ctx:update(dt)
 	end
 
 end
+
 function ctx:draw()
-	if ANDROID then
-		local width = love.graphics.getWidth()
-		local height = love.graphics.getHeight()
-		love.graphics.scale(width/720)
-		love.graphics.scale(height/960)
-		-- rotate around the center of the screen by angle radians
-		love.graphics.translate(width/2, height/2)
-		love.graphics.rotate(-0.5*math.pi)
-		love.graphics.translate(-width/2, -height/2)
-	end
+	scale()
 
 	i=0
 	DRAWSCENE()

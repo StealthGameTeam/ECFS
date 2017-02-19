@@ -6,13 +6,13 @@ CURRENTSTATE = "PHONE"
 pprint = require 'lib.pprint'
 require 'lib.TEsound'
 local SS = {}
-SS[#SS+1] = "assets/batfail.wav"
-SS[#SS+1] = "assets/hedfail.wav"
-SS[#SS+1] = "assets/ltrfail.wav"
-SS[#SS+1] ="assets/pirfail1.wav"
-SS[#SS+1] = "assets/pirfail2.wav"
-SS[#SS+1] ="assets/whifail.wav"
-MUSIC = TEsound.playLooping("assets/battle music.wav", {"music"})
+SS[#SS+1] = "assets/batfail.mp3"
+SS[#SS+1] = "assets/hedfail.mp3"
+SS[#SS+1] = "assets/ltrfail.mp3"
+SS[#SS+1] ="assets/pirfail1.mp3"
+SS[#SS+1] = "assets/pirfail2.mp3"
+SS[#SS+1] ="assets/whifail.mp3"
+MUSIC = TEsound.playLooping("assets/battle_music.mp3", {"music"})
 interruptMusicToPlayFail = function(name)
 	return function()
 		TEsound.volume("music", 0)
@@ -73,5 +73,12 @@ end
 function love.update(dt)
 	--- Events
 	TEsound.cleanup()
+end
 
+scale = function()
+	if ANDROID then
+		local width = love.graphics.getWidth()
+		local height = love.graphics.getHeight()
+		love.graphics.scale(width/720, height/960)
+	end
 end
